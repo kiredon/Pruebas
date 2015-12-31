@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- SET default mail properties -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		
+		<property name="host" value="smtp.zoho.com"/>
+		<property name="port" value="587" />		
+		<property name="username" value="jobin@jobin.com.mx" />
+		<property name="password" value="1qazxsw2.." />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>				
+				<prop key="mail.smtp.host">smtp.zoho.com</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.port">587</prop>
+				<prop key="mail.smtp.user">jobin@jobin.com.mx</prop>
+				<prop key="mail.smtp.auth">true</prop>				
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+    	<property name="basename" value="email-templates/locale/language" />
+	</bean>
+
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<props>
+	            <prop key="resource.loader">class</prop>
+	            <prop key="class.resource.loader.class">
+	                org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+	            </prop>
+	            <prop key="velocimacro.library">email-templates/macro.vm</prop>	            
+	        </props>
+		</property>
+	</bean>
+	
+	<!-- Amazon config	
+	<property name="host" value="email-smtp.us-east-1.amazonaws.com"/>
+	<property name="username" value="AKIAJOIZF4SIYQK7YSWA" />
+	<property name="password" value="AvBsuzeW9JXR0UxZfbGrG2fp5S/dW2QgVD04/qxb9APa" />
+	<prop key="mail.smtp.host">email-smtp.us-east-1.amazonaws.com</prop>
+	<prop key="mail.smtp.user">jobin@serti.com.mx</prop>
+	-->
+
+</beans>

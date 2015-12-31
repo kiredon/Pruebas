@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>snics-services</display-name>
+
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+
+	<filter>
+		<filter-name>cors</filter-name>
+		<filter-class>mx.com.sagarpa.snics.service.CORSFilter</filter-class>
+	</filter>
+
+	<!-- <filter> <filter-name>springSecurityFilterChain</filter-name> <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> 
+		</filter> -->
+
+	<filter>
+		<filter-name>multireadFilter</filter-name>
+		<filter-class>mx.com.sagarpa.snics.service.MultiReadServletFilter</filter-class>
+	</filter>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextInitializerClasses</param-name>
+		<param-value>mx.com.sagarpa.snics.common.config.AppConfigProfileInitializer</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:/MainAppCtx.xml</param-value>
+	</context-param>
+
+	<!-- <listener> <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class> 
+		</listener> -->
+
+
+	<filter-mapping>
+		<filter-name>cors</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- <filter-mapping> <filter-name>springSecurityFilterChain</filter-name> 
+		<url-pattern>/*</url-pattern> </filter-mapping> -->
+
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>snics</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>dispatchOptionsRequest</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>snics</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>snics</servlet-name>
+		<url-pattern>*.json</url-pattern>
+	</servlet-mapping>
+
+	<mime-mapping>
+		<extension>inc</extension>
+		<mime-type>text/plain</mime-type>
+	</mime-mapping>
+
+	<mime-mapping>
+		<extension>json</extension>
+		<mime-type>application/json</mime-type>
+	</mime-mapping>
+
+</web-app>

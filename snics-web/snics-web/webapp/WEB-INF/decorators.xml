@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/decorators">
+
+	<excludes>
+		<pattern>/menuHeader.jsp</pattern>
+		<pattern>/services/*</pattern>
+		<pattern>/servlet/*</pattern>
+		<pattern>*.jws</pattern>
+		<pattern>/archivos/*</pattern>
+		<pattern>/login.jsp</pattern>
+		<pattern>/reportes/*</pattern>	
+		<pattern>/logout.do</pattern>
+		<pattern>/css/fonts/*</pattern>
+		<pattern>/index.jsp</pattern>
+		<pattern>/ExportPdfPrescripcionServlet</pattern>
+		
+		
+	</excludes>
+ 
+	<decorator name="master" page="master.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+ 
+	<decorator name="layoutLogin" page="layoutLogin.jsp">
+		<pattern>/login*</pattern>
+	</decorator>
+
+</decorators>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
+	http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+	<context:component-scan base-package="mx.com.sagarpa.snics" />
+
+
+
+ 	<beans:bean id="seguridad" class="mx.com.sagarpa.snics.service.SeguridadFiltroServices" /> 
+
+ 	<http auto-config="true" use-expressions="true"
+		disable-url-rewriting="true">
+		<!-- Filtro propio para la seguridad y gestión de permisos -->
+		<custom-filter position="LAST" ref="seguridad" /> 
+
+		<intercept-url pattern="/Snowflake/login.do" filters="none" />
+
+		<intercept-url pattern="/endpoint/list.do" filters="none" />
+		<intercept-url pattern="/js/**" filters="none" />
+		<intercept-url pattern="/fonts/**" filters="none" />
+		<intercept-url pattern="/css/**" filters="none" />
+		<intercept-url pattern="/views/admin/login.jsp" filters="none" />
+		<intercept-url pattern="/views/admin/forbidden.jsp" filters="none" />
+		
+	</http> 
+	<!-- <http auto-config="true" use-expressions="true" disable-url-rewriting="true"> 
+		<intercept-url pattern="/j_spring_security_check" access="IS_AUTHENTICATED_ANONYMOUSLY" 
+		/> resources ( acceso anonimo ) <intercept-url pattern="/views/admin/categoriaMedicamento.jsp" 
+		access="hasAnyRole('ROLE_ANONYMOUS','ROLE_OPERADOR_READ_ONLY','ROLE_ADMINISTRADOR','ROLE_OPERADOR','ROLE_PROSA','ROLE_SEGURIDAD')" 
+		requires-channel="any" /> <intercept-url pattern="/error/*" access="hasAnyRole('ROLE_ANONYMOUS','ROLE_OPERADOR_READ_ONLY','ROLE_ADMINISTRADOR','ROLE_OPERADOR','ROLE_PROSA','ROLE_SEGURIDAD')" 
+		requires-channel="any" /> <intercept-url pattern="/js/*" access="hasAnyRole('ROLE_ANONYMOUS','ROLE_OPERADOR_READ_ONLY','ROLE_ADMINISTRADOR','ROLE_OPERADOR','ROLE_PROSA','ROLE_SEGURIDAD')" 
+		requires-channel="any" /> <intercept-url pattern="/img/*" access="hasAnyRole('ROLE_ANONYMOUS','ROLE_OPERADOR_READ_ONLY','ROLE_ADMINISTRADOR','ROLE_OPERADOR','ROLE_PROSA','ROLE_SEGURIDAD')" 
+		requires-channel="any" /> accesso autenticado home <intercept-url pattern="/home.do" 
+		access="hasAnyRole('ROLE_ADMINISTRADOR','ROLE_OPERADOR_READ_ONLY','ROLE_OPERADOR','ROLE_PROSA','ROLE_SEGURIDAD')" 
+		requires-channel="any" /> shared files <intercept-url pattern="/files/*" 
+		access="hasAnyRole('ROLE_ADMINISTRADOR','ROLE_OPERADOR_READ_ONLY','ROLE_OPERADOR','ROLE_PROSA','ROLE_SEGURIDAD')" 
+		requires-channel="any" /> <intercept-url pattern="/config/*" access="hasAnyRole('ROLE_ADMINISTRADOR')" 
+		requires-channel="any" /> <intercept-url pattern="/security/*" access="hasAnyRole('ROLE_SEGURIDAD')" 
+		requires-channel="any" /> <form-login login-page="/login.jsp" default-target-url="/home.do" 
+		authentication-failure-url="/login.jsp?error=true" login-processing-url="/j_spring_security_check" 
+		/> <logout logout-success-url="/index.jsp" invalidate-session="true" /> <session-management 
+		session-fixation-protection="newSession" session-authentication-error-url="/login.do"> 
+		<concurrency-control max-sessions="5" error-if-maximum-exceeded="true" expired-url="/logout.do" 
+		/> </session-management> TODO: Agregar el namespace para validar certificados 
+		</http> -->
+
+	<authentication-manager>
+		<!-- <authentication-provider ref="PbxAuthenticationProvider"/> -->
+	</authentication-manager>
+
+	<!-- Configuracion OK falta SSO -->
+
+	<!-- <ldap-server id="ldapServer" url="${ldap.server}" manager-dn="${ldap.user}" 
+		manager-password="${ldap.pass}" /> <authentication-manager alias="defaultLdapAuthenticatorManager" 
+		> <ldap-authentication-provider server-ref="ldapServer" user-context-mapper-ref="UserDetailsContextMapperImpl" 
+		user-search-filter="uid={0}" user-search-base="${ldap.user.path}" group-search-filter="uniquemember={0}" 
+		group-search-base="${ldap.app.path}"> </ldap-authentication-provider> </authentication-manager> 
+		<beans:bean id="ldapParams" class="java.util.Hashtable" scope="prototype"> 
+		<beans:constructor-arg> <beans:map key-type="java.lang.String" value-type="java.lang.String"> 
+		<beans:entry key="java.naming.factory.initial" value="com.sun.jndi.ldap.LdapCtxFactory" 
+		/> <beans:entry key="java.naming.security.authentication" value="simple" 
+		/> <beans:entry key="java.naming.provider.url" value="${ldap.server}" /> 
+		<beans:entry key="java.naming.security.principal" value="${ldap.user}" /> 
+		<beans:entry key="java.naming.security.credentials" value="${ldap.pass}" 
+		/> <beans:entry key="ldap.app.path" value="${ldap.app.path}" /> <beans:entry 
+		key="ldap.user.path" value="${ldap.user.path}" /> </beans:map> </beans:constructor-arg> 
+		</beans:bean> -->
+</beans:beans>

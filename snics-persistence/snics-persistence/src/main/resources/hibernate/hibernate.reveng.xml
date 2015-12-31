@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+<hibernate-reverse-engineering>
+	<schema-selection match-schema="dbo" />
+	<type-mapping>
+		<sql-type jdbc-type="NUMERIC" precision='22' hibernate-type="java.lang.Long" />
+		<sql-type jdbc-type="BIGINT" hibernate-type="java.lang.Long" />
+		<sql-type jdbc-type="CHAR" length='1' hibernate-type="java.lang.String" />
+	</type-mapping>
+	
+		   <table name="Cat_Especie" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Especie"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Ciclo_Agricola" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Ciclo_Agricola"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Condicion_Cultivo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Condicion_Cultivo"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Equipo_Muestreo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Equipo_Muestreo"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Forma_Muestreo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Forma_Muestreo"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Lugar_Muestreo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Lugar_Muestreo"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Problemas_Supervision" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Problemas_Supervision"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Sustrato" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Sustrato"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Tipo_Domicilio" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Domicilio"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Tipo_Enavse" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Enavse"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Tipo_Muestra" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Muestra"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Etapa_Cultivo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Etapa_Cultivo"/>
+		</primary-key>
+	</table>	
+	
+	<table name="Cat_Tipo_Planta" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Planta"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Unidad_Medida" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Unidad_Medida"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Origen" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Origen"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Fecha_Ciclo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Fecha_Ciclo"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Permiso" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Permiso"/>
+		</primary-key>
+	</table>
+		   <table name="Cat_Tipo_Cultivo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Cultivo"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Funcion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Funcion"/>
+		</primary-key>
+	</table>
+	 <table name="Cat_Categoria" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Categoria"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Actividades_Organismo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Actividades_Organismo"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Rol" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Rol"/>
+		</primary-key>
+	</table>		
+	<table name="Cat_Cultivo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Cultivo"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Variedad_Cultivo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Variedad_Cultivo"/>
+		</primary-key>
+	</table>	
+		<table name="Cat_Tipo_Medida" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Medida"/>
+		</primary-key>
+	</table>
+
+		<table name="Cat_Intervalo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Intervalo"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Tipo_Intervalo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Intervalo"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Modalidad" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Modalidad"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Resultado_Inspeccion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Resultado_Inspeccion"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Colonia" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Colonia"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Municipio" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Municipio"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Pais" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Pais"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Unidad_Snics" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Unidad_Snics"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Status_Movilizacion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Status_Movilizacion"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Tipo_Alertas" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Tipo_Alertas"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Categoria_Produccion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Categoria_Produccion"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Calificacion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Calificacion"/>
+		</primary-key>
+	</table>
+		<table name="Cat_Status_Movimiento_Etiquetas" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Status_Movimiento_Etiqueta"/>
+		</primary-key>
+	</table>
+	<table name="Cat_Estado" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Estado"/>
+		</primary-key>
+	</table>
+	<table name="Dat_Domicilio_Fiscal" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Domicilio_Fiscal"/>
+		</primary-key>
+	</table>
+		<table name="Dat_Persona_Contacto" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Persona_Contacto"/>
+		</primary-key>
+	</table>
+		<table name="Dat_R1_Categoria" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R1_Categoria"/>
+		</primary-key>
+	</table>
+		<table name="Dat_R1_Cabecera" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R1_Cabecera"/>
+		</primary-key>
+	</table>
+		<table name="Dat_R4_Cabecera" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R4_Cabecera"/>
+		</primary-key>
+	</table>
+		<table name="Dat_R3_Cabecera" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R3_Cabecera"/>
+		</primary-key>
+	</table>
+		<table name="Dat_R7_Cabecera" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R7_Cabecera"/>
+		</primary-key>
+	</table>
+		<table name="Dat_Laboratorio_Cabecera" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Laboratorio_Cabecera"/>
+		</primary-key>
+	</table>
+		<table name="Dat_Laboratorio_Semillas" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Laboratorio_Semillas"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_Laboratorio_Germinacion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Laboratorio_Germinacion"/>
+		</primary-key>
+	</table>
+			<table name="Dat_Existencias_Etiquetas" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Existencias_Etiquetas"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_Laboratorio_Datos" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Laboratorio_Datos"/>
+		</primary-key>
+	</table>
+			<table name="Dat_Laboratorio_Pantulas" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Laboratorio_Pantulas"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R5_Origen" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R5_Origen"/>
+		</primary-key>
+	</table>
+			<table name="Dat_Boletin" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Boletin"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R5_Ciclo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R5_Ciclo"/>
+		</primary-key>
+	</table>
+			<table name="Dat_R5_Detalle" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R5_Detalle"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R5_Particulares" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R5_Particulares"/>
+		</primary-key>
+	</table>
+			<table name="Dat_R5_Estiba" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R5_Estiba"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R5_Cabecera" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R5_Cabecera"/>
+		</primary-key>
+	</table>
+				<table name="Dat_R4_Direccion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R4_Direccion"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R1_Origen" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R1_Origen"/>
+		</primary-key>
+	</table>
+	<table name="Dat_R1_Inspeccion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R1_Inspeccion"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_Representante_Legal" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Representante_Legal"/>
+		</primary-key>
+	</table>			
+	<table name="Dat_Organismo" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Organismo"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_A5_Cabecera" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_A5_Cabecera"/>
+		</primary-key>
+	</table>
+				<table name="Dat_Almacen_Beneficio" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Almacen_Beneficio"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_Alerta" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Alerta"/>
+		</primary-key>
+	</table>
+	<table name="Dat_Usuario" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Usuario"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R1_Predio" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R1_Predio"/>
+		</primary-key>
+	</table>
+				<table name="Dat_Folio_Existencias" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Folio_Existencias"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R7_Inspeccion" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R7_Inspeccion"/>
+		</primary-key>
+	</table>
+	<table name="Dat_Movimiento_Etiquetas" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Movimiento_Etiquetas"/>
+		</primary-key>
+	</table>	
+	<table name="Dat_R5_Materia_Prima" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_R5_Materia_Prima"/>
+		</primary-key>
+	</table>
+		<table name="Dat_serie_Existencias" schema="dbo" catalog="sisem">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="Id_Serie_Existencias"/>
+		</primary-key>
+	</table>
+		<table name="DAT_SNOWFLAKE" schema="dbo" catalog="MUS">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="ID_SNOWFLAKE"/>
+		</primary-key>
+	</table>
+		<table name="LINK_ROL_USUARIO" schema="dbo" catalog="MUS">
+		<primary-key>
+			<generator class="identity">
+			</generator>
+			<key-column name="ID_ROL_USUARIO"/>
+		</primary-key>
+	</table>
+</hibernate-reverse-engineering>
